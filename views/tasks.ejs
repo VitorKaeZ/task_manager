@@ -1,0 +1,42 @@
+<div class="title-container">
+<h1>Tasks Page</h1>
+<a href="/tasks/insert" class="add"> <p> Add new task <i class="fa-solid fa-plus"></i></p></a>
+</div>
+<div class="tasks-container">
+
+    <div class="uncompleted-tasks">
+        <h2 class="task-title">Uncompleted Tasks</h2>
+        <% tasks.forEach((task) => { %>
+            <% if (!task.completed) { %>
+                <div class="colunm">
+                    <input type="checkbox" name="completed" class="task-checkbox" />
+                    <div class="task">                 
+                        <h3><%= task.taskname %></h3>
+                        <p>OBS:<br><%= task.description %></p>
+                    </div>
+                    <div class="button-container">
+                        <a href="/tasks/edit" class="edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/tasks/delete" class="delete"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+            <% } %>
+        <% }) %> 
+    </div>
+    <div class="completed-tasks">
+        <h2 class="task-title">Completed Tasks</h2>
+        <% tasks.forEach((task) => { %>
+            <% if (task.completed) { %>
+                <div class="colunm">
+                    <input type="checkbox" name="completed" class="task-checkbox" checked/>
+                    <div class="task">           
+                        <h3><%= task.taskname %></h3>
+                        <p>OBS:<br><%= task.description %></p>
+                    </div>
+                    <div class="button-container">
+                        <a href="/tasks/delete" class="delete"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+            <% } %>
+        <% }) %> 
+    </div>
+</div>

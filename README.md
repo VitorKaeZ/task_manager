@@ -27,6 +27,6 @@ express
 express-ejs-layouts
 mysql
 
-#Install db in your SGBD
+#Install db in your DBMS
 mysql.sql
 ```

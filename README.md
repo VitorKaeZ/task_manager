@@ -1,8 +1,16 @@
 # Task Manager📌
 
+It's a CRUD here you add/delete a task and save it in a MySQL database
+
 # Design
 
-![1Image](readme/design2.png)
+![1Image](readme/design1.png)
+![2Image](readme/design2.png)
+![3Image](readme/design3.png)
+![4Image](readme/design4.png)
+![5Image](readme/design5.png)
+![6Image](readme/design6.png)
+![7Image](readme/design7.png)
 
 # Instructions
 

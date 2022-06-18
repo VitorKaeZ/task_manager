@@ -99,6 +99,15 @@ footer {
 .edit , .delete {
     color: black;
 }
+
+.delete, .button-check{
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 20px;
+}
+
+
 .edit:hover {
     color: blue;
 }
@@ -149,4 +158,14 @@ footer {
     margin: 20px;
     height: 40px;
     width: 60px;
+}
+
+/* Edit */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: 200px;
 }

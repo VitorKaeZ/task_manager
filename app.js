@@ -4,6 +4,7 @@ const port = 3002
 const routes = require('./routes/routes')
 const layout = require('express-ejs-layouts')
 
+
 //Static Files
 app.use(express.static('public'))
 
@@ -13,7 +14,8 @@ app.set('layout', './layouts/layout')
 app.set("view engine", "ejs")
 
 
-app.use('/', routes)
+app.use('/',routes)
+
 
 
 app.listen(port, () => {

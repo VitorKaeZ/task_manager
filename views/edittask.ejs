@@ -1,0 +1,15 @@
+
+<h1>Edit task</h1>
+
+<form action="/tasks/update" method="POST" class="form">
+    <input type="hidden" name="id" value="<%= task.id %>">
+    <div class="form-control">
+        <label for="taskname">Task name: </label>
+        <input type="text" name="taskname" placeholder="Digite a task:" value="<%= task.taskname %>">
+    </div>
+    <div class="form-control">
+        <label for="description">Description: </label>
+        <input type="text" name="description" placeholder="Descrição " value="<%= task.description %>">
+    </div>
+    <input type="submit" value="Editar">
+</form>

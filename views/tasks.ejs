@@ -9,15 +9,23 @@
         <% tasks.forEach((task) => { %>
             <% if (!task.completed) { %>
                 <div class="colunm">
-                    <input type="checkbox" name="completed" class="task-checkbox" />
+                    <form id="formcheck" action="/tasks/update" method="POST">
+                        <button class="button-check" onclick="return confirm('Did you complete this task?')"><input name="checkcompleted" type="checkbox"   class="task-checkbox" onChange="this.form.submit()" value="true"/></button>
+                        <input type="hidden" name="id" value="<%= task.id %>">
+                        <input type="hidden" name="taskname" value="<%= task.taskname %>">
+                        <input type="hidden" name="description" value="<%= task.description %>">
+                        <!-- <label for="checkcompleted"><input name="checkcompleted" type="checkbox"   class="task-checkbox"  /> </label> -->
+                    </form>
                     <div class="task">                 
                         <h3><%= task.taskname %></h3>
                         <p><br><%= task.description %></p>
                     </div>
-                    <div class="button-container">
-                        <a href="/tasks/edit" class="edit"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="/tasks/delete" class="delete"><i class="fa-solid fa-trash"></i></a>
-                    </div>
+
+                    <form action="/tasks/delete/<%= task.id %>" method="POST"  class="button-container">
+                        <a href="/tasks/<%= task.id %>&<%= task.taskname %>" class="edit" ><i class="fa-solid fa-pen-to-square"></i></a>
+                        <button class="delete" type="submit" onclick="return confirm('Do you want to delete this task?')"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                    
                 </div>
             <% } %>
         <% }) %> 
@@ -27,16 +35,32 @@
         <% tasks.forEach((task) => { %>
             <% if (task.completed) { %>
                 <div class="colunm">
-                    <input type="checkbox" name="completed" class="task-checkbox" checked/>
+                    <form id="formcheck" action="/tasks/update" method="POST">
+                        <button class="button-check" onclick="return confirm('Do you want to revert?')"><input name="checkcompleted" type="checkbox"   class="task-checkbox" onChange="this.form.submit()" value="false" checked/></button>
+                        <input type="hidden" name="id" value="<%= task.id %>">
+                        <input type="hidden" name="taskname" value="<%= task.taskname %>">
+                        <input type="hidden" name="description" value="<%= task.description %>">
+                        <!-- <label for="checkcompleted"><input name="checkcompleted" type="checkbox"   class="task-checkbox"  /> </label> -->
+                    </form>
                     <div class="task">           
                         <h3><%= task.taskname %></h3>
                         <p><br><%= task.description %></p>
                     </div>
-                    <div class="button-container">
-                        <a href="/tasks/delete" class="delete"><i class="fa-solid fa-trash"></i></a>
-                    </div>
+                    <form action="/tasks/delete/<%= task.id %>" method="POST"  class="button-container">
+                        <button class="delete" type="submit" onclick="return confirm('Do you want to delete this task?')"><i class="fa-solid fa-trash"></i></button>
+                    </form>
                 </div>
             <% } %>
         <% }) %> 
     </div>
 </div>
+<script>
+    function buildlist(listName,labelName){
+    var controls = document.getElementsByName(listName);
+    var label = document.getElementsByName(labelName);
+    label.value = '';
+    for(var i=0;i<controls.length;i++){
+        label.value += controls[i].value.toString()+',';
+  }
+}
+</script>

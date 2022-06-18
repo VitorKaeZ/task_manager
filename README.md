@@ -27,6 +27,6 @@ express
 express-ejs-layouts
 mysql
 
-#Install db in your MySQL workbench
+#Install db in your SGBD
 mysql.sql
 ```

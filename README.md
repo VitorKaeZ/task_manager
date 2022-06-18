@@ -27,4 +27,6 @@ express
 express-ejs-layouts
 mysql
 
+#Install db in your MySQL workbench
+mysql.sql
 ```

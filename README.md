@@ -1,6 +1,6 @@
 # Task Manager📌
 
-It's a CRUD here you add/delete a task and save it in a MySQL database
+It's a CRUD that you add/delete a task and save it in a MySQL database
 
 # Design
 
